@@ -35,5 +35,5 @@ router.delete('/:id', (req, res) => {
   Post.findById(req.params.id).then(post =>
     post.remove().then(() => res.json({ success: true }))
   )
-  .catch(err => res.status(404).json({ succes: false }));
+  .catch(err => res.status(404).json({ success: false }));
 });

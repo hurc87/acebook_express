@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+var date = new Date();
 
 // Creat Schema
 const PostSchema = new Schema({
@@ -16,8 +17,14 @@ const PostSchema = new Schema({
     required: true
   },
   date: {
-    type: Date,
-    default: Date.now
+    type: String,
+    default: function formatDate() {
+      var d = new Date()
+      day = d.getDate()
+      month = d.getMonth() + 1
+      year = d.getFullYear()
+      return `${day}/${month}/${year}`
+    }
   }
 });
 
